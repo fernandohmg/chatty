@@ -1,8 +1,7 @@
-import express, { request, response } from "express";
+import express from "express";
 import { createServer } from "http";
-import { Server, Socket } from "socket.io";
 import path from "path";
-
+import { Server, Socket } from "socket.io";
 import "./database";
 import { routes } from "./routes";
 
@@ -15,6 +14,10 @@ app.set("view engine", "html");
 
 app.get("/pages/client", (request, response) => {
   return response.render("html/client.html");
+});
+
+app.get("/pages/admin", (request, response) => {
+  return response.render("html/admin.html");
 });
 
 const http = createServer(app); //Http protocol creation
